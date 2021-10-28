@@ -22,7 +22,7 @@ class FIFO
   end
 
   def create
-    Process.run("mkfifo", { path.to_s })
+    LibC.mkfifo(path.to_s, 0o0600)
   end
 
   def delete
